@@ -10,14 +10,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import golf.security.AuthProvider;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    AuthProvider authProvider;
 
     @Autowired
     public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -27,21 +23,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/static/css/**, /static/js/**, *.ico");
+        web.ignoring().antMatchers("/css/**, /js/**, *.ico");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().and()
-        .authorizeRequests().antMatchers("/", "/home","/index").permitAll().anyRequest()
-                .authenticated().and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/alert")
-                .usernameParameter("id").passwordParameter("password")
-                .successHandler(customAuthenticationSuccessHandler).failureHandler(customAuthenticationFailureHandler)
+        .authorizeRequests().antMatchers("/*", "/home","/index","/css/**", "/js/**").permitAll().anyRequest()
+                .authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                // .formLogin().loginPage("/login").defaultSuccessUrl("/alert").failureUrl("/login?error=true")
+                // .usernameParameter("id").passwordParameter("password")
+                // .successHandler(customAuthenticationSuccessHandler).failureHandler(customAuthenticationFailureHandler)
                 .permitAll().and()
                 .logout().logoutSuccessUrl("/").permitAll();
 
-        //http.authenticationProvider(authProvider);
     }
 
     @Bean

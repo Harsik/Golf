@@ -15,28 +15,4 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
-    // @GetMapping("/create")
-    // public Account create() {
-    //     Account account = new Account();
-    //     account.setName("user");
-    //     account.setPassword("password");
-    //     return accountService.save(account);
-    // }
-
-    @GetMapping("/iden")
-    public String iden() {
-        return "your auth is pass";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Account account, String error, String logout) {
-        if (error != null) {
-           // account.addAttribute("errorMsg", "Your username and password are invalid.");
-        }
-        if (logout != null) {
-          //  account.addAttribute("msg", "You have been logged out successfully");
-        }
-        return "login.html";
-    }
-
 }

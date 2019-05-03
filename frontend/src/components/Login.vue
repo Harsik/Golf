@@ -1,13 +1,13 @@
 <template>
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md4>
-      <form>
+      <v-form>
         <v-text-field v-model='id' :counter='10' data-vv-name='username' label='ID'></v-text-field>
         <v-text-field v-model='password' data-vv-name='password' label='Password'></v-text-field>
         <v-card-actions>
           <v-btn type='submit' @click='submit' color='success'>submit</v-btn>
         </v-card-actions>
-      </form>
+      </v-form>
     </v-flex>
   </v-layout>
 </template>
@@ -18,10 +18,9 @@ export default {
     id: '',
     password: ''
   }),
-  methods: {// eslint-disable-next-line
+  methods: {
+    // eslint-disable-next-line
     submit() {
-      // // eslint-disable-next-line
-      //     console.log(this.id)
       const headers = new Headers({
         'Access-Control-Allow-Origin': '*',
         // 'Content-Type': 'application/json'

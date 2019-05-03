@@ -32,9 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests().antMatchers("/*", "/home","/index","/css/**", "/js/**").permitAll().anyRequest()
                 .authenticated()
                 .and()
-                // .formLogin().loginPage("/login")
+                // .formLogin().loginPage("/login") //post로 /login에 날릴것 frontend부분에 url 주소랑 관계 없음
                 .formLogin().loginPage("/login").defaultSuccessUrl("/alert").failureUrl("/login?error=true")
-                .usernameParameter("id").passwordParameter("password")
+                // .usernameParameter("id").passwordParameter("password")
                 .successHandler(customAuthenticationSuccessHandler).failureHandler(customAuthenticationFailureHandler)
                 .permitAll().and()
                 .logout().logoutSuccessUrl("/").permitAll();

@@ -12,7 +12,7 @@ export default new Router({
       name: 'HelloWorld',
       component: require('@/components/HelloWorld').default
     }, {
-      path: '/login',
+      path: '/signin',
       name: 'Login',
       component: require('@/components/Login').default
     }, {

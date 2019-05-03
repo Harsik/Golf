@@ -22,11 +22,11 @@ export default {
     submit() {
       const headers = new Headers({
         'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       })
       // fetch('http://192.168.137.59:8080/Alpha/api/auth/signin', {
-      fetch('http://localhost:8081/api/auth/signin', {
+      fetch('http://localhost:8081/login', {
         method: 'POST',
         headers: headers,
         // mode: 'cors',
@@ -36,11 +36,11 @@ export default {
         .then(response => {
           this.$router.push('/Alert')
           // eslint-disable-next-line
-          return console.log('fetch response  : ' + response)
+          console.log(response)
         })
         .catch(error => {
           // eslint-disable-next-line
-          console.log('fetch error : ' + error)
+          console.log(error)
         })
     }
   }

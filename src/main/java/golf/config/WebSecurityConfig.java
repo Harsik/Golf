@@ -32,10 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests().antMatchers("/*", "/home","/index","/css/**", "/js/**").permitAll().anyRequest()
                 .authenticated()
                 .and()
-                .formLogin().loginPage("/login")
-                // .formLogin().loginPage("/login").defaultSuccessUrl("/alert").failureUrl("/login?error=true")
-                // .usernameParameter("id").passwordParameter("password")
-                // .successHandler(customAuthenticationSuccessHandler).failureHandler(customAuthenticationFailureHandler)
+                // .formLogin().loginPage("/login")
+                .formLogin().loginPage("/login").defaultSuccessUrl("/alert").failureUrl("/login?error=true")
+                .usernameParameter("id").passwordParameter("password")
+                .successHandler(customAuthenticationSuccessHandler).failureHandler(customAuthenticationFailureHandler)
                 .permitAll().and()
                 .logout().logoutSuccessUrl("/").permitAll();
 

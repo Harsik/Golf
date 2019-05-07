@@ -38,6 +38,8 @@ export default {
           this.$router.push('/Alert')
           // eslint-disable-next-line
           console.log(response)
+          // 로그인이 성공했다는 조건문과 전역 변수 만들기
+          // 백엔드 프론트 엔드 별도 서버 운영 시도해보기
         })
         .catch(error => {
           // eslint-disable-next-line

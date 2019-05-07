@@ -1,17 +1,26 @@
 package golf.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.Builder;
+// import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+// import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+// @Data
+// @ToString
 public class Account {
 
     @Id
@@ -20,7 +29,10 @@ public class Account {
     private String name;
     private String username;
     private String password;
-
+    // @CreationTimestamp
+    // private Timestamp regdate;
+    // @UpdateTimestamp
+    // private Timestamp updatedate;
     @Builder 
 	public Account(String username, String password) {
 		this.username = username;

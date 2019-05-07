@@ -5,14 +5,14 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  // mode: 'history', page error 발생
   routes: [
     {
       path: '/',
       name: 'HelloWorld',
       component: require('@/components/HelloWorld').default
     }, {
-      path: '/signin',
+      path: '/login',
       name: 'Login',
       component: require('@/components/Login').default
     }, {
